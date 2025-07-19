@@ -1,0 +1,12 @@
+name: TagBattle
+version: 1.0
+main: com.yourname.tagbattle.TagBattlePlugin
+api-version: 1.19
+
+commands:
+  resetgame:
+    description: "게임 상태 초기화"
+  startgame:
+    description: "게임 시작"
+  endgame:
+    description: "게임 종료"
