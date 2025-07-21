@@ -1,4 +1,4 @@
-package com.yourname.tagbattle;
+package com.skannamu;
 
 import org.bukkit.*;
 import org.bukkit.command.Command;
