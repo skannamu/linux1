@@ -1,5 +1,6 @@
 **극극극극축소판 헝거게임**
-#Maven기반 빌드
+
+Maven기반 빌드
 빌드방법 : 
 1. cd ~/"TOPDIR" <-프로젝트 최상위디렉토리로 이동(clone해온 위치)
 2. mvn clean package <- ~/TOPDIR/target/original-tagbattle-1.0.jar생성
