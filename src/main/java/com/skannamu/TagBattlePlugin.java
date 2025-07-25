@@ -9,6 +9,8 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.*;
 
@@ -96,7 +98,7 @@ public class TagBattlePlugin extends JavaPlugin implements Listener {
     private void teleportRandom(Player player) {
         World world = player.getWorld();
         Random rand = new Random();
-        int x = rand.nextInt(100) - 50;
+        int x = rand.nextInt(101) - 50;
         int z = rand.nextInt(100) - 50;
         int y = world.getHighestBlockYAt(x, z) + 1;
         player.teleport(new Location(world, x + 0.5, y, z + 0.5));
@@ -132,7 +134,7 @@ public class TagBattlePlugin extends JavaPlugin implements Listener {
             resetPlayer(p);
             teleportRandom(p);
             p.sendMessage(ChatColor.AQUA + "게임 시작 준비 중입니다. 잠시 대기해주세요...");
-            p.setWalkSpeed(0f);
+            p.setWalkSpeed(0f); // 이동 불가
         }
 
         new BukkitRunnable() {
@@ -144,6 +146,9 @@ public class TagBattlePlugin extends JavaPlugin implements Listener {
                     for (Player p : Bukkit.getOnlinePlayers()) {
                         p.sendMessage(ChatColor.GREEN + "게임 시작!");
                         p.setWalkSpeed(0.2f); // 기본 속도로 복원
+                        // **5초간 실명 효과 적용**
+                        p.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 100, 1));
+                        // 100 ticks = 5초 (1초 = 20 ticks)
                     }
                     cancel();
                 } else {

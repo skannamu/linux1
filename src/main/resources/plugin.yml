@@ -1,12 +1,11 @@
-name: TagBattle
+name: TagBattlePlugin
 version: 1.0
 main: com.skannamu.TagBattlePlugin
-api-version: 1.19
-
+api-version: 1.20
 commands:
   resetgame:
-    description: "게임 상태 초기화"
+    description: 플레이어를 초기화합니다.
   startgame:
-    description: "게임 시작"
+    description: 게임을 시작합니다.
   endgame:
-    description: "게임 종료"
+    description: 게임을 종료합니다.
